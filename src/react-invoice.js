@@ -66,7 +66,6 @@ var Invoice = React.createClass({
 	},
 	componentDidMount: function () {
 		this.loadCommentsFromServer();
-		setInterval(this.loadCommentsFromServer, this.props.pollInterval);
 	},
 	render: function () {
 		var style = {
@@ -83,6 +82,6 @@ var Invoice = React.createClass({
 });
 
 React.render(
-	<Invoice url="http://localhost:8000/" pollInterval={2000}/>,
+	<Invoice url="http://localhost:8000/"/>,
 	document.getElementById('content')
 );

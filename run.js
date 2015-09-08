@@ -4,7 +4,6 @@ var PORT = 8000;
 
 setInterval(function () {
 	phantom = spawn('phantomjs', ['invoice.js']);
-	console.log('Invoice PDF regenerated');
 
 	phantom.stdout.on('data', function (data) {
 		console.log('stdout: ' + data);

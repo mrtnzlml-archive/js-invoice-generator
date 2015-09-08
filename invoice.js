@@ -1,5 +1,6 @@
 var webPage = require('webpage');
 var fs = require('fs');
+var system = require('system');
 
 var page = webPage.create();
 
@@ -16,4 +17,5 @@ page.injectJs('build/react-invoice.js');
 
 setTimeout(function () {
 	page.render('invoice.pdf');
+	system.stdout.write('Invoice PDF regenerated');
 }, 3000);
