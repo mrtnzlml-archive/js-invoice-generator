@@ -5,14 +5,17 @@ var system = require('system');
 var page = webPage.create();
 
 page.paperSize = {
-	format: 'A4',
-	orientation: 'portrait',
-	margin: '1cm'
+	width: '210mm',
+	height: '297mm',
+	orientation: 'portrait'
 };
 
 page.content = fs.read('invoice.html');
 page.injectJs('jquery.min.js');
 page.injectJs('react.js');
+page.injectJs('jquery.qrcode-0.12.0.min.js');
+page.injectJs('node_modules/moment/moment.js');
+
 page.injectJs('build/react-invoice.js');
 
 setTimeout(function () {
