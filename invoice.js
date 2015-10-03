@@ -18,7 +18,7 @@ page.injectJs('node_modules/moment/moment.js');
 
 page.injectJs('build/react-invoice.js');
 
-setTimeout(function () {
+setInterval(function () {
 	page.render('invoice.pdf');
 	system.stdout.write('Invoice PDF regenerated');
-}, 3000);
+}, 1000);

@@ -3,12 +3,12 @@ var spawn = require('child_process').spawn;
 var http = require('http');
 var PORT = 8000;
 
-//setInterval(function () {
+
+
 phantom = spawn('phantomjs', ['invoice.js']);
 
 phantom.stdout.on('data', function (data) {
 	console.log('stdout: ' + data);
-	//phantom.kill();
 });
 
 phantom.stderr.on('data', function (data) {
@@ -18,7 +18,8 @@ phantom.stderr.on('data', function (data) {
 phantom.on('close', function (code) {
 	console.log('child process exited with code ' + code);
 });
-//}, 2000);
+
+
 
 var server = http.createServer(function (request, response) {
 	response.writeHead(200, {
@@ -56,6 +57,8 @@ var server = http.createServer(function (request, response) {
 server.listen(PORT, function () {
 	console.log('Server is listening on port ' + PORT);
 });
+
+
 
 Number.prototype.formatMoney = function (c, d, t) {
 	var n = this,
